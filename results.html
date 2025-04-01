@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Result for Nov. / Dec. Examination</title>
+    <link rel="stylesheet" href="results.css">
+    <script>
+        window.onload = function() {
+            // Get values from URL parameters
+            const urlParams = new URLSearchParams(window.location.search);
+            const regNumber = urlParams.get('register');
+            const dob = urlParams.get('dob');
+            
+            // Display the values
+            if (regNumber && dob) {
+                document.getElementById('regNumber').textContent = regNumber;
+                document.getElementById('dob').textContent = dob;
+            } else {
+                window.location.href = 'index.html'; // Redirect back to login if no data
+            }
+            
+            // Show April Fool's message after 6 seconds
+            setTimeout(() => {
+                document.getElementById('aprilFool').style.display = 'flex';
+            }, 7500);
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Result for Nov. / Dec. Examination</h1>
+        
+        <div class="student-details">
+            <p>Register Number: <span id="regNumber"></span></p>
+            <p>Date of Birth: <span id="dob"></span></p>
+            <p>Institution: Alpha College of Engineering</p>
+            <p>Batch: 2025 - 2028</p>
+        </div>
+
+        <table>
+            <tr class="header">
+                <th>Semester</th>
+                <th>Subject Code</th>
+                <th>Grade</th>
+                <th>Result</th>
+            </tr>
+            <tr>
+                <td>01</td><td>HS3151</td><td>C</td><td>PASS</td>
+            </tr>
+            <tr>
+                <td>01</td><td>MA3151</td><td>U</td><td>RA</td>
+            </tr>
+            <tr>
+                <td>01</td><td>PH3151</td><td>U</td><td>RA</td>
+            </tr>
+            <tr>
+                <td>01</td><td>CY3151</td><td>U</td><td>RA</td>
+            </tr>
+            <tr>
+                <td>01</td><td>GE3151</td><td>U</td><td>RA</td>
+            </tr>
+            <tr>
+                <td>01</td><td>GE3152</td><td>B</td><td>PASS</td>
+            </tr>
+        </table>
+
+        <div class="note">
+            <p style="color: red">Note: The below GPA is calculated based on the above result only.</p>
+            <p>GPA for semester : 01 => 0.5</p>
+        </div>
+    </div>
+
+    <div id="aprilFool" class="april-fool" style="display: none;">
+        <div class="fool-content">
+            <h1>🎉 APRIL FOOL! 🎉</h1>
+            <img src="your-gif.gif" alt="April Fool" class="fool-gif">
+            <p>Gotcha! These aren't your real results!</p>
+        </div>
+    </div>
+
+    <style>
+        .april-fool {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        .fool-content {
+            text-align: center;
+            color: white;
+        }
+        .fool-gif {
+            max-width: 500px;
+            margin: 20px 0;
+        }
+    </style>
+ 
+    <script>
+        window.onload = function() {
+            // Get values from URL parameters
+            const urlParams = new URLSearchParams(window.location.search);
+            const regNumber = urlParams.get('register');
+            const dob = urlParams.get('dob');
+            
+            // Display the values
+            if (regNumber && dob) {
+                document.getElementById('regNumber').textContent = regNumber;
+                document.getElementById('dob').textContent = dob;
+            } else {
+                window.location.href = 'index.html'; // Redirect back to login if no data
+            }
+            
+            // Show April Fool's message after 6 seconds
+            setTimeout(() => {
+                document.getElementById('aprilFool').style.display = 'flex';
+            }, 7000);
+        }
+    </script>
+</body>
+</html>

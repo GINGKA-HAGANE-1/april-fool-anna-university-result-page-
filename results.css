@@ -1,0 +1,123 @@
+body {
+    background-color: #E0F2F1;
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    margin: 0;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+h1 {
+    text-align: center;
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.student-details {
+    margin-bottom: 15px;
+}
+
+.student-details p {
+    margin: 5px 0;
+    font-size: 14px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 15px;
+}
+
+th {
+    background-color: #006064;
+    color: white;
+    padding: 8px;
+    text-align: left;
+}
+
+td {
+    padding: 6px 8px;
+    border: 1px solid #006064;
+}
+
+tr:nth-child(even) {
+    background-color: #B2DFDB;
+}
+
+.note {
+    font-size: 13px;
+    margin-top: 10px;
+}
+
+.note p {
+    margin: 3px 0;
+}
+
+.print-btn {
+    text-align: right;
+}
+
+.print-btn a {
+    color: #006064;
+    text-decoration: none;
+}
+
+.result-header {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.arrow {
+    color: #4CAF50;
+    font-size: 48px;
+    margin-bottom: 10px;
+}
+
+.student-info {
+    margin: 20px 0;
+}
+
+.redacted {
+    background-color: #000;
+    padding: 0 10px;
+}
+
+.result-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+.result-table th {
+    background-color: #006064;
+    color: white;
+    padding: 10px;
+    text-align: left;
+}
+
+.result-table td {
+    padding: 8px;
+    border: 1px solid #006064;
+}
+
+.result-table tr:nth-child(even) {
+    background-color: #B2DFDB;
+}
+
+.note {
+    color: red;
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+@media print {
+    body {
+        background-color: white;
+    }
+    .print-btn {
+        display: none;
+    }
+}

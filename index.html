@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pre-Examination Monitoring System</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <img src="logo.png" alt="Anna University Logo">
+            </div>
+            <h1>Anna University, Chennai</h1>
+            <h2>Office of the Controller of Examinations</h2>
+            <h3>Pre- Examination Monitoring System</h3>
+        </header>
+
+        <div class="main-content">
+            <div class="welcome-banner">
+                <h2>Welcome to Office of the Controller of Examinations</h2>
+                <h3>Pre-Examination Monitoring System</h3>
+            </div>
+
+            <div class="login-container">
+                <div class="login-box institution">
+                    <h3>Institution login</h3>
+                    <form>
+                        <div class="form-group">
+                            <label>Institution Code:</label>
+                            <input type="text" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Password:</label>
+                            <input type="password" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Enter the Captcha</label>
+                            <input type="text" required>
+                            <div class="captcha">G3H3TR</div>
+                        </div>
+                        <a href="#" class="forgot-password">Forgot Password</a>
+                        <button type="submit" class="login-btn">Login</button>
+                    </form>
+                </div>
+
+                <div class="login-box student">
+                    <h3>Student login</h3>
+                    <form id="studentForm" action="results.html" method="get" onsubmit="return handleSubmit(event)">
+                        <div class="form-group">
+                            <label>Register Number</label>
+                            <input type="text" name="register" pattern="\d{12}" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Date of Birth</label>
+                            <input type="text" name="dob" pattern="\d{2}-\d{2}-\d{4}" placeholder="DD-MM-YYYY" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Enter the Captcha</label>
+                            <input type="text" id="captchaInput" required>
+                            <div class="captcha">1NJXOO</div>
+                        </div>
+                        <button type="submit" class="login-btn">Login</button>
+                    </form>
+                </div>
+
+<script>
+async function handleSubmit(event) {
+    event.preventDefault();
+    
+    if (validateStudentForm()) {
+        // Show loading overlay
+        const loadingOverlay = document.createElement('div');
+        loadingOverlay.className = 'loading-overlay';
+        loadingOverlay.innerHTML = `
+            <div class="loader"></div>
+            <p>Please wait, processing your request...</p>
+        `;
+        document.body.appendChild(loadingOverlay);
+        
+        // Wait for 2 seconds before redirecting
+        await new Promise(resolve => setTimeout(resolve, 2000));
+        
+        // Submit the form
+        document.getElementById('studentForm').submit();
+    }
+    return false;
+}
+
+// Add these styles to your existing CSS
+const style = document.createElement('style');
+style.textContent = `
+    .loading-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(224, 242, 241, 0.9);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+    }
+    .loader {
+        border: 5px solid #f3f3f3;
+        border-top: 5px solid #20B2AA;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        animation: spin 1s linear infinite;
+        margin-bottom: 20px;
+    }
+    @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+`;
+document.head.appendChild(style);
+function validateStudentForm() {
+    const regNumber = document.querySelector('input[name="register"]').value;
+    const dob = document.querySelector('input[name="dob"]').value;
+    const captchaInput = document.getElementById('captchaInput').value;
+    const actualCaptcha = '1NJXOO';
+    
+    // Check DOB year
+    const year = parseInt(dob.split('-')[2]);
+    if (year < 2000 || year > 2008) {
+        alert('Invalid Register Number!');
+        return false;
+    }
+    
+    if (!regNumber.startsWith('2101')) {
+        alert('Invalid Register Number!');
+        return false;
+    }
+    
+    if (captchaInput !== actualCaptcha) {
+        alert('Invalid Captcha! Please try again.');
+        return false;
+    }
+    return true;
+}
+</script>
+                <div class="news-updates">
+                    <div class="attention-header">Attention! All Institutions [ View All ]</div>
+                    <div class="attention-box">
+                        <marquee behavior="scroll" direction="up" scrollamount="2" height="300" onmouseover="this.stop();" onmouseout="this.start();">
+                            <p class="attention-red">*Kind Attention to the Institutions: Nov/Dec 2014 Examination Results UG/PG Published. Last date for Students Applying for Photocopy: 04-02-2020</p>
+                            
+                            <p class="attention-green">*Kind Attention to the Institutions: Academic Assessment Schedule April/May 2020 Examinations (Even Semester) - <a href="#" class="blink">Click Here</a></p>
+                        </marquee>
+                    </div>
+                </div>
+
+<style>
+.news-updates {
+    background: #333333;
+    margin: 0;
+    width: 300px;
+    height: 100%;
+}
+
+.attention-header {
+    background: #20B2AA;
+    color: white;
+    padding: 8px 15px;
+    font-size: 14px;
+}
+
+.attention-box {
+    padding: 15px;
+    background: #fff;
+    height: 300px;
+    width: auto;
+    overflow: hidden;
+}
+
+.attention-red, .attention-green {
+    margin: 15px 0;
+    font-size: 14px;
+    padding: 8px 0;
+    line-height: 1.5;
+}
+</style>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
